@@ -60,10 +60,11 @@ Any inquiries can be addressed to:
 
 	<Compliancies>
 		<CassandraReady>true</CassandraReady>
-		<MinimumRequiredVersion>10.1.0.0 - 9966</MinimumRequiredVersion>
+		<MinimumRequiredVersion>10.3.0.0 - 12752</MinimumRequiredVersion>
 	</Compliancies>
 
 	<Params>
+		
 		<Param id="1">
 			<Name>valueZero</Name>
 			<Description>Value Zero</Description>
@@ -78,9 +79,16 @@ Any inquiries can be addressed to:
 		</Param>
 		
 		<Param id="2">
-			<Name>AfterStartup</Name>
-			<Description>After Startup</Description>
-			<Type>dummy</Type>
+			<Name>exceptionValue</Name>
+			<Description>Exception Value</Description>
+			<Type>fixed</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>fixed</LengthType>
+				<Length>2</Length>
+				<Value>-1</Value>
+			</Interprete>
 		</Param>
 		
 		<Param id="3">
@@ -218,9 +226,6 @@ Any inquiries can be addressed to:
 			</Measurement>
 		</Param>
 		
-		
-		
-		
 		<Param id="7" trending="false">
 			<Name>decoderStatus</Name>
 			<Description>Decoder Status</Description>
@@ -293,7 +298,7 @@ Any inquiries can be addressed to:
 		</Param>
 		
 		<Param id="8" trending="false">
-			<Name>Current_Compressed_Bitrate</Name>
+			<Name>Current_Compressed_Bitrate_Encoder</Name>
 			<Description>Current Compressed Bitrate</Description>
 			<Type>read</Type>
 			<Information>
@@ -303,16 +308,26 @@ Any inquiries can be addressed to:
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
-				<DefaultValue>0</DefaultValue>
+				<DefaultValue>500</DefaultValue>
 				<Decimals>3</Decimals>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
 			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+				<CH>700</CH>
+			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Decimals>3</Decimals>
 				<Units>Mbps</Units>
 				<Range>
 					<Low>0</Low>
-					<High>10</High>
+					<High>1200</High>
 				</Range>
 				<Positions>
 					<Position>
@@ -323,7 +338,7 @@ Any inquiries can be addressed to:
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type>number</Type>
+				<Type>analog</Type>
 			</Measurement>
 		</Param>
 		
@@ -339,6 +354,12 @@ Any inquiries can be addressed to:
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
 				<DefaultValue>1</DefaultValue>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -410,6 +431,12 @@ Any inquiries can be addressed to:
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
 				<DefaultValue>50</DefaultValue>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -471,6 +498,12 @@ Any inquiries can be addressed to:
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
 				<DefaultValue>1</DefaultValue>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -542,7 +575,13 @@ Any inquiries can be addressed to:
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
 				<Decimals>3</Decimals>
-				<DefaultValue>0</DefaultValue>
+				<DefaultValue>500</DefaultValue>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -550,7 +589,7 @@ Any inquiries can be addressed to:
 				<Units>Mbps</Units>
 				<Range>
 					<Low>0</Low>
-					<High>10</High>
+					<High>1200</High>
 				</Range>
 				<Positions>
 					<Position>
@@ -561,7 +600,7 @@ Any inquiries can be addressed to:
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type>number</Type>
+				<Type>analog</Type>
 			</Measurement>
 		</Param>
 		
@@ -577,6 +616,12 @@ Any inquiries can be addressed to:
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
 				<DefaultValue>0</DefaultValue>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -672,13 +717,18 @@ Any inquiries can be addressed to:
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
 				<DefaultValue>0</DefaultValue>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Units>px</Units>
 				<Range>
 					<Low>0</Low>
-					<High>10</High>
 				</Range>
 				<Positions>
 					<Position>
@@ -705,13 +755,18 @@ Any inquiries can be addressed to:
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
 				<DefaultValue>0</DefaultValue>
+				<Exceptions>
+					<Exception id="1" value="-1">
+						<Display state="disabled">Not Available</Display>
+						<Value>-1</Value>
+					</Exception>
+				</Exceptions>
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Units>px</Units>
 				<Range>
 					<Low>0</Low>
-					<High>10</High>
 				</Range>
 				<Positions>
 					<Position>
@@ -726,6 +781,13 @@ Any inquiries can be addressed to:
 			</Measurement>
 		</Param>
 		
+		<Param id="16">
+			<Name>AfterStartup</Name>
+			<Description>After Startup</Description>
+			<Type>dummy</Type>
+		</Param>
+		
+				
 	</Params>
 
 	<QActions>
@@ -741,9 +803,7 @@ Any inquiries can be addressed to:
 			<Content>
 				<Action>2</Action>
 			</Content>
-		</Group>
-
-		
+		</Group>		
 	</Groups>
 
 	<Triggers>
@@ -759,26 +819,45 @@ Any inquiries can be addressed to:
 		
 		
 		<Trigger id="107">
-			<Name>onChangeDiseableEncoderStatus</Name>
+			<Name>On Encoder Status Change</Name>
 			<On id="107">parameter</On>
 			<Condition><![CDATA[id:6 == 1]]></Condition>
 			<Time>change</Time>
 			<Type>action</Type>
 			<Content>
 				<Id>106</Id>
+				<Id>8</Id>
+				<Id>9</Id>
+				<Id>10</Id>
+				<Id>11</Id>
+
+				<Id>20</Id>
+				<Id>21</Id>
+				<Id>22</Id>
+				<Id>23</Id>
 			</Content>
 		</Trigger>
 		
 		<Trigger id="106">
-			<Name>onChangeDiseableDecoderStatus</Name>
+			<Name>On Decoder Status Change</Name>
 			<On id="106">parameter</On>
 			<Condition><![CDATA[id:7 == 1]]></Condition>
 			<Time>change</Time>
 			<Type>action</Type>
 			<Content>
 				<Id>107</Id>
+				<Id>12</Id>
+				<Id>13</Id>
+				<Id>14</Id>
+				<Id>15</Id>
+
+				<Id>16</Id>
+				<Id>17</Id>
+				<Id>18</Id>
+				<Id>19</Id>
 			</Content>
 		</Trigger>
+		
 	</Triggers>
 
 	<Actions>
@@ -789,18 +868,102 @@ Any inquiries can be addressed to:
 		</Action>
 		<Action id="2">
 			<Name>After Startup QAction</Name>
-			<On id="2">parameter</On>
+			<On id="16">parameter</On>
 			<Type>run actions</Type>
 		</Action>
 		
 		<Action id="106">
-			<Name>Copy 1 To 6</Name>
+			<Name>Disable Encoder Status </Name>
 			<On id="6">parameter</On>
 			<Type id="1">copy</Type>
 		</Action>
 		<Action id="107">
-			<Name>Copy 1 To 7</Name>
+			<Name>Disable Decoder Status</Name>
 			<On id="7">parameter</On>
+			<Type id="1">copy</Type>
+		</Action>
+
+		<Action id="8">
+			<Name>Current Compressed Bitrate Encoder Not Available</Name>
+			<On id="8">parameter</On>
+			<Type id="2">copy</Type>
+		</Action>
+		<Action id="9">
+			<Name>Auto Chroma Weight Not Available</Name>
+			<On id="9">parameter</On>
+			<Type id="2">copy</Type>
+		</Action>
+		<Action id="10">
+			<Name>Chroma Weight Not Available</Name>
+			<On id="10">parameter</On>
+			<Type id="2">copy</Type>
+		</Action>
+		<Action id="11">
+			<Name>Lossless Mode Not Available</Name>
+			<On id="11">parameter</On>
+			<Type id="2">copy</Type>
+		</Action>
+
+		<Action id="12">
+			<Name>Current Compressed Bitrate Decoder Not Available</Name>
+			<On id="12">parameter</On>
+			<Type id="2">copy</Type>
+		</Action>
+		<Action id="13">
+			<Name>Progression Order Not Available</Name>
+			<On id="13">parameter</On>
+			<Type id="2">copy</Type>
+		</Action>
+		<Action id="14">
+			<Name>Code Block Not Available</Name>
+			<On id="14">parameter</On>
+			<Type id="2">copy</Type>
+		</Action>
+		<Action id="15">
+			<Name>Code Block Height Not Available</Name>
+			<On id="15">parameter</On>
+			<Type id="2">copy</Type>
+		</Action>
+		
+		<Action id="16">
+			<Name>Current Compressed Bitrate Encoder Available</Name>
+			<On id="8">parameter</On>
+			<Type id="1">copy</Type>
+		</Action>
+		<Action id="17">
+			<Name>Auto Chroma Weight Available</Name>
+			<On id="9">parameter</On>
+			<Type id="1">copy</Type>
+		</Action>
+		<Action id="18">
+			<Name>Chroma Weight Available</Name>
+			<On id="10">parameter</On>
+			<Type id="1">copy</Type>
+		</Action>
+		<Action id="19">
+			<Name>Lossless Mode Available</Name>
+			<On id="11">parameter</On>
+			<Type id="1">copy</Type>
+		</Action>
+
+		<Action id="20">
+			<Name>Current Compressed Bitrate Decoder Available</Name>
+			<On id="12">parameter</On>
+			<Type id="1">copy</Type>
+		</Action>
+		<Action id="21">
+			<Name>Progression Order Available</Name>
+			<On id="13">parameter</On>
+			<Type id="1">copy</Type>
+		</Action>
+		<Action id="22">
+			<Name>Code Block Available</Name>
+			<On id="14">parameter</On>
+			<Type id="1">copy</Type>
+		</Action>
+		<Action id="23">
+			<Name>Code Block Height Available</Name>
+			<On id="15">parameter</On>
 			<Type id="1">copy</Type>
 		</Action>
 		
