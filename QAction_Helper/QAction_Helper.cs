@@ -10,14 +10,14 @@ public static class Parameter
 {
 	/// <summary>PID: 6 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int encoder_status_button_6 = 6;
+	public const int encoderstatus_6 = 6;
 	/// <summary>PID: 6 | Type: read</summary>
-	public const int encoder_status_button = 6;
+	public const int encoderstatus = 6;
 	/// <summary>PID: 7 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int decoder_status_7 = 7;
+	public const int decoderstatus_7 = 7;
 	/// <summary>PID: 7 | Type: read</summary>
-	public const int decoder_status = 7;
+	public const int decoderstatus = 7;
 	/// <summary>PID: 8 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int current_compressed_bitrate_8 = 8;
@@ -62,14 +62,14 @@ public static class Parameter
 	{
 		/// <summary>PID: 106 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int encoder_status_button_106 = 106;
+		public const int encoderstatus_106 = 106;
 		/// <summary>PID: 106 | Type: write</summary>
-		public const int encoder_status_button = 106;
+		public const int encoderstatus = 106;
 		/// <summary>PID: 107 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int decoder_status_107 = 107;
+		public const int decoderstatus_107 = 107;
 		/// <summary>PID: 107 | Type: write</summary>
-		public const int decoder_status = 107;
+		public const int decoderstatus = 107;
 		/// <summary>PID: 109 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public const int auto_chroma_weight_109 = 109;
@@ -94,10 +94,10 @@ public static class Parameter
 }
 public class WriteParameters
 {
-	/// <summary>PID: 106  | Type: write | DISCREETS: Enabled = 1, Disabled = 2</summary>
-	public System.Object Encoder_status_button {get { return Protocol.GetParameter(106); }set { Protocol.SetParameter(106, value); }}
-	/// <summary>PID: 107  | Type: write | DISCREETS: Enabled = 1, Disabled = 2</summary>
-	public System.Object Decoder_status {get { return Protocol.GetParameter(107); }set { Protocol.SetParameter(107, value); }}
+	/// <summary>PID: 106  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	public System.Object Encoderstatus {get { return Protocol.GetParameter(106); }set { Protocol.SetParameter(106, value); }}
+	/// <summary>PID: 107  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	public System.Object Decoderstatus {get { return Protocol.GetParameter(107); }set { Protocol.SetParameter(107, value); }}
 	/// <summary>PID: 109  | Type: write | DISCREETS: Enabled = 1, Disabled = 2</summary>
 	public System.Object Auto_chroma_weight {get { return Protocol.GetParameter(109); }set { Protocol.SetParameter(109, value); }}
 	/// <summary>PID: 110  | Type: write</summary>
@@ -114,14 +114,15 @@ public class WriteParameters
 }
 public interface SLProtocolExt : SLProtocol
 {
+	object Valuezero__fixed { get; set; }
 	object Afterstartup_dummy { get; set; }
-	object Title_begin_encoder__fixed { get; set; }
-	object Title_begin_decoder__fixed { get; set; }
-	object Title_end_generic__fixed { get; set; }
-	object Encoder_status_button_6 { get; set; }
-	object Encoder_status_button { get; set; }
-	object Decoder_status_7 { get; set; }
-	object Decoder_status { get; set; }
+	object Titlebeginencoder__fixed { get; set; }
+	object Titlebegindecoder__fixed { get; set; }
+	object Titleendgeneric__fixed { get; set; }
+	object Encoderstatus_6 { get; set; }
+	object Encoderstatus { get; set; }
+	object Decoderstatus_7 { get; set; }
+	object Decoderstatus { get; set; }
 	object Current_compressed_bitrate_8 { get; set; }
 	object Current_compressed_bitrate { get; set; }
 	object Auto_chroma_weight_9 { get; set; }
@@ -138,8 +139,8 @@ public interface SLProtocolExt : SLProtocol
 	object Code_block_width { get; set; }
 	object Code_block_height_15 { get; set; }
 	object Code_block_height { get; set; }
-	object Encoder_status_button_106 { get; set; }
-	object Decoder_status_107 { get; set; }
+	object Encoderstatus_106 { get; set; }
+	object Decoderstatus_107 { get; set; }
 	object Auto_chroma_weight_109 { get; set; }
 	object Chroma_weight_110 { get; set; }
 	object Lossless_mode_111 { get; set; }
@@ -148,24 +149,26 @@ public interface SLProtocolExt : SLProtocol
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 {
+	/// <summary>PID: 1  | Type: fixed</summary>
+	public System.Object Valuezero__fixed {get { return GetParameter(1); }set { SetParameter(1, value); }}
 	/// <summary>PID: 2  | Type: dummy</summary>
 	public System.Object Afterstartup_dummy {get { return GetParameter(2); }set { SetParameter(2, value); }}
 	/// <summary>PID: 3  | Type: fixed</summary>
-	public System.Object Title_begin_encoder__fixed {get { return GetParameter(3); }set { SetParameter(3, value); }}
+	public System.Object Titlebeginencoder__fixed {get { return GetParameter(3); }set { SetParameter(3, value); }}
 	/// <summary>PID: 4  | Type: fixed</summary>
-	public System.Object Title_begin_decoder__fixed {get { return GetParameter(4); }set { SetParameter(4, value); }}
+	public System.Object Titlebegindecoder__fixed {get { return GetParameter(4); }set { SetParameter(4, value); }}
 	/// <summary>PID: 5  | Type: fixed</summary>
-	public System.Object Title_end_generic__fixed {get { return GetParameter(5); }set { SetParameter(5, value); }}
-	/// <summary>PID: 6  | Type: read | DISCREETS: Enabled = 1, Disabled = 2</summary>
+	public System.Object Titleendgeneric__fixed {get { return GetParameter(5); }set { SetParameter(5, value); }}
+	/// <summary>PID: 6  | Type: read | DISCREETS: Disabled = 0, Enabled = 1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Encoder_status_button_6 {get { return GetParameter(6); }set { SetParameter(6, value); }}
-	/// <summary>PID: 6  | Type: read | DISCREETS: Enabled = 1, Disabled = 2</summary>
-	public System.Object Encoder_status_button {get { return GetParameter(6); }set { SetParameter(6, value); }}
-	/// <summary>PID: 7  | Type: read | DISCREETS: Enabled = 1, Disabled = 2</summary>
+	public System.Object Encoderstatus_6 {get { return GetParameter(6); }set { SetParameter(6, value); }}
+	/// <summary>PID: 6  | Type: read | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	public System.Object Encoderstatus {get { return GetParameter(6); }set { SetParameter(6, value); }}
+	/// <summary>PID: 7  | Type: read | DISCREETS: Disabled = 0, Enabled = 1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Decoder_status_7 {get { return GetParameter(7); }set { SetParameter(7, value); }}
-	/// <summary>PID: 7  | Type: read | DISCREETS: Enabled = 1, Disabled = 2</summary>
-	public System.Object Decoder_status {get { return GetParameter(7); }set { SetParameter(7, value); }}
+	public System.Object Decoderstatus_7 {get { return GetParameter(7); }set { SetParameter(7, value); }}
+	/// <summary>PID: 7  | Type: read | DISCREETS: Disabled = 0, Enabled = 1</summary>
+	public System.Object Decoderstatus {get { return GetParameter(7); }set { SetParameter(7, value); }}
 	/// <summary>PID: 8  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Current_compressed_bitrate_8 {get { return GetParameter(8); }set { SetParameter(8, value); }}
@@ -206,12 +209,12 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Code_block_height_15 {get { return GetParameter(15); }set { SetParameter(15, value); }}
 	/// <summary>PID: 15  | Type: read</summary>
 	public System.Object Code_block_height {get { return GetParameter(15); }set { SetParameter(15, value); }}
-	/// <summary>PID: 106  | Type: write | DISCREETS: Enabled = 1, Disabled = 2</summary>
+	/// <summary>PID: 106  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Encoder_status_button_106 {get { return GetParameter(106); }set { SetParameter(106, value); }}
-	/// <summary>PID: 107  | Type: write | DISCREETS: Enabled = 1, Disabled = 2</summary>
+	public System.Object Encoderstatus_106 {get { return GetParameter(106); }set { SetParameter(106, value); }}
+	/// <summary>PID: 107  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Decoder_status_107 {get { return GetParameter(107); }set { SetParameter(107, value); }}
+	public System.Object Decoderstatus_107 {get { return GetParameter(107); }set { SetParameter(107, value); }}
 	/// <summary>PID: 109  | Type: write | DISCREETS: Enabled = 1, Disabled = 2</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Auto_chroma_weight_109 {get { return GetParameter(109); }set { SetParameter(109, value); }}

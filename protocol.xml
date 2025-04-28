@@ -64,6 +64,19 @@ Any inquiries can be addressed to:
 	</Compliancies>
 
 	<Params>
+		<Param id="1">
+			<Name>valueZero</Name>
+			<Description>Value Zero</Description>
+			<Type>fixed</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>fixed</LengthType>
+				<Length>1</Length>
+				<Value>0</Value>
+			</Interprete>
+		</Param>
+		
 		<Param id="2">
 			<Name>AfterStartup</Name>
 			<Description>After Startup</Description>
@@ -71,7 +84,7 @@ Any inquiries can be addressed to:
 		</Param>
 		
 		<Param id="3">
-			<Name>Title_Begin_Encoder</Name>
+			<Name>titleBeginEncoder</Name>
 			<Description>Encoder</Description>
 			<Type>fixed</Type>
 			<Display>
@@ -90,7 +103,7 @@ Any inquiries can be addressed to:
 		</Param>
 		
 		<Param id="4">
-			<Name>Title_Begin_Decoder</Name>
+			<Name>titleBeginDecoder</Name>
 			<Description>Decoder</Description>
 			<Type>fixed</Type>
 			<Display>
@@ -109,7 +122,7 @@ Any inquiries can be addressed to:
 		</Param>
 		
 		<Param id="5">
-			<Name>Title_End_Generic</Name>
+			<Name>titleEndGeneric</Name>
 			<Type>fixed</Type>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -134,12 +147,12 @@ Any inquiries can be addressed to:
 			</Measurement>
 		</Param>
 		
-		<Param id="6" trending="true">
-			<Name>Encoder_Status_Button</Name>
+		<Param id="6" trending="false" >
+			<Name>encoderStatus</Name>
 			<Description>Encoder Status</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>Show encoder status</Subtext>
+				<Subtext>Encoder status button.</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>numeric text</RawType>
@@ -161,18 +174,18 @@ Any inquiries can be addressed to:
 				<Type>discreet</Type>
 				<Discreets>
 					<Discreet>
-						<Display>Enabled</Display>
-						<Value>1</Value>
+						<Display>Disabled</Display>
+						<Value>0</Value>
 					</Discreet>
 					<Discreet>
-						<Display>Disabled</Display>
-						<Value>2</Value>
+						<Display>Enabled</Display>
+						<Value>1</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
 		</Param>
 		<Param id="106" setter="true">
-			<Name>Encoder_Status_Button</Name>
+			<Name>encoderStatus</Name>
 			<Description>Encoder Status</Description>
 			<Type>write</Type>
 			<Interprete>
@@ -194,29 +207,32 @@ Any inquiries can be addressed to:
 				<Type>togglebutton</Type>
 				<Discreets>
 					<Discreet>
-						<Display>Enabled</Display>
-						<Value>1</Value>
+						<Display>Disabled</Display>
+						<Value>0</Value>
 					</Discreet>
 					<Discreet>
-						<Display>Disabled</Display>
-						<Value>2</Value>
+						<Display>Enabled</Display>
+						<Value>1</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
 		</Param>
 		
-		<Param id="7">
-			<Name>Decoder_Status</Name>
+		
+		
+		
+		<Param id="7" trending="false">
+			<Name>decoderStatus</Name>
 			<Description>Decoder Status</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>Show encoder status</Subtext>
+				<Subtext>Decoders status button</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
-				<DefaultValue>2</DefaultValue>
+				<DefaultValue>0</DefaultValue>
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -232,18 +248,18 @@ Any inquiries can be addressed to:
 				<Type>discreet</Type>
 				<Discreets>
 					<Discreet>
-						<Display>Enabled</Display>
-						<Value>1</Value>
+						<Display>Disabled</Display>
+						<Value>0</Value>
 					</Discreet>
 					<Discreet>
-						<Display>Disabled</Display>
-						<Value>2</Value>
+						<Display>Enabled</Display>
+						<Value>1</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
 		</Param>
 		<Param id="107" setter="true">
-			<Name>Decoder_Status</Name>
+			<Name>decoderStatus</Name>
 			<Description>Decoder Status</Description>
 			<Type>write</Type>
 			<Interprete>
@@ -265,12 +281,12 @@ Any inquiries can be addressed to:
 				<Type>togglebutton</Type>
 				<Discreets>
 					<Discreet>
-						<Display>Enabled</Display>
-						<Value>1</Value>
+						<Display>Disabled</Display>
+						<Value>0</Value>
 					</Discreet>
 					<Discreet>
-						<Display>Disabled</Display>
-						<Value>2</Value>
+						<Display>Enabled</Display>
+						<Value>1</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
@@ -545,7 +561,7 @@ Any inquiries can be addressed to:
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type></Type>
+				<Type>number</Type>
 			</Measurement>
 		</Param>
 		
@@ -726,6 +742,8 @@ Any inquiries can be addressed to:
 				<Action>2</Action>
 			</Content>
 		</Group>
+
+		
 	</Groups>
 
 	<Triggers>
@@ -740,6 +758,27 @@ Any inquiries can be addressed to:
 		</Trigger>
 		
 		
+		<Trigger id="107">
+			<Name>onChangeDiseableEncoderStatus</Name>
+			<On id="107">parameter</On>
+			<Condition><![CDATA[id:6 == 1]]></Condition>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>106</Id>
+			</Content>
+		</Trigger>
+		
+		<Trigger id="106">
+			<Name>onChangeDiseableDecoderStatus</Name>
+			<On id="106">parameter</On>
+			<Condition><![CDATA[id:7 == 1]]></Condition>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>107</Id>
+			</Content>
+		</Trigger>
 	</Triggers>
 
 	<Actions>
@@ -753,6 +792,18 @@ Any inquiries can be addressed to:
 			<On id="2">parameter</On>
 			<Type>run actions</Type>
 		</Action>
+		
+		<Action id="106">
+			<Name>Copy 1 To 6</Name>
+			<On id="6">parameter</On>
+			<Type id="1">copy</Type>
+		</Action>
+		<Action id="107">
+			<Name>Copy 1 To 7</Name>
+			<On id="7">parameter</On>
+			<Type id="1">copy</Type>
+		</Action>
+		
 	</Actions>
 
 	<Timers>
