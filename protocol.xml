@@ -48,11 +48,11 @@ Any inquiries can be addressed to:
 	<Name>Exercise Encoder-Decoder</Name>
 	<Description>Exercise Encoder/Decoder DataMiner connector</Description>
 	<Version>1.0.0.1</Version>
-	<IntegrationID>DMS-DRV-</IntegrationID>
+	<IntegrationID>DMS-DRV-0000</IntegrationID>
 	<Provider>Skyline Communications</Provider>
-	<Vendor></Vendor>
-	<VendorOID>1.3.6.1.4.1.8813.2.</VendorOID>
-	<DeviceOID></DeviceOID>
+	<Vendor>Skyline Communications</Vendor>
+	<VendorOID>1.3.6.1.4.1.8813.2.0</VendorOID>
+	<DeviceOID>0</DeviceOID>
 	<ElementType>connector</ElementType>
 	<Type relativeTimers="true">virtual</Type>
 	<Display defaultPage="General" pageOrder="General" wideColumnPages=""/>
@@ -298,8 +298,8 @@ Any inquiries can be addressed to:
 		</Param>
 		
 		<Param id="8" trending="false">
-			<Name>Current_Compressed_Bitrate_Encoder</Name>
-			<Description>Current Compressed Bitrate</Description>
+			<Name>currentCompressedBitrateEncoder</Name>
+			<Description>Current Compressed Bitrate Encoder</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>Current Compressed Bitrate</Subtext>
@@ -319,7 +319,8 @@ Any inquiries can be addressed to:
 			</Interprete>
 			<Alarm>
 				<Monitored>true</Monitored>
-				<CH>700</CH>
+				<CH>1000</CH>
+				<CL>50</CL>
 			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -343,7 +344,7 @@ Any inquiries can be addressed to:
 		</Param>
 		
 		<Param id="9" trending="true">
-			<Name>Auto_Chroma_Weight</Name>
+			<Name>autoChromaWeight</Name>
 			<Description>Auto Chroma Weight</Description>
 			<Type>read</Type>
 			<Information>
@@ -386,7 +387,7 @@ Any inquiries can be addressed to:
 			</Measurement>
 		</Param>
 		<Param id="109" setter="true">
-			<Name>Auto_Chroma_Weight</Name>
+			<Name>autoChromaWeight</Name>
 			<Description>Auto Chroma Weight</Description>
 			<Type>write</Type>
 			<Interprete>
@@ -420,7 +421,7 @@ Any inquiries can be addressed to:
 		</Param>
 		
 		<Param id="10" trending="true">
-			<Name>Chroma_Weight</Name>
+			<Name>chromaWeight</Name>
 			<Description>Chroma Weight</Description>
 			<Type>read</Type>
 			<Information>
@@ -438,6 +439,14 @@ Any inquiries can be addressed to:
 					</Exception>
 				</Exceptions>
 			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+				<Normal>50</Normal>
+				<MaH>80</MaH>
+				<CH>90</CH>
+				<MaL>15</MaL>
+				<CL>5</CL>
+			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Units>%</Units>
@@ -458,7 +467,7 @@ Any inquiries can be addressed to:
 			</Measurement>
 		</Param>
 		<Param id="110">
-			<Name>Chroma_Weight</Name>
+			<Name>chromaWeight</Name>
 			<Description>Chroma Weight</Description>
 			<Type>write</Type>
 			<Interprete>
@@ -487,7 +496,7 @@ Any inquiries can be addressed to:
 		</Param>
 		
 		<Param id="11" trending="true">
-			<Name>Lossless_Mode</Name>
+			<Name>losslessMode</Name>
 			<Description>Lossless Mode</Description>
 			<Type>read</Type>
 			<Information>
@@ -530,7 +539,7 @@ Any inquiries can be addressed to:
 			</Measurement>
 		</Param>
 		<Param id="111" setter="true">
-			<Name>Lossless_Mode</Name>
+			<Name>losslessMode</Name>
 			<Description>Lossless Mode</Description>
 			<Type>write</Type>
 			<Interprete>
@@ -564,7 +573,7 @@ Any inquiries can be addressed to:
 		</Param>
 		
 		<Param id="12" trending="false">
-			<Name>Current_Compressed_Bitrate_Decoder</Name>
+			<Name>currentCompressedBitrateDecoder</Name>
 			<Description>Current Compressed Bitrate Decoder</Description>
 			<Type>read</Type>
 			<Information>
@@ -575,7 +584,7 @@ Any inquiries can be addressed to:
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
 				<Decimals>3</Decimals>
-				<DefaultValue>500</DefaultValue>
+				<DefaultValue>-1</DefaultValue>
 				<Exceptions>
 					<Exception id="1" value="-1">
 						<Display state="disabled">Not Available</Display>
@@ -583,6 +592,11 @@ Any inquiries can be addressed to:
 					</Exception>
 				</Exceptions>
 			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+				<CH>1000</CH>
+				<CL>50</CL>
+			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Decimals>3</Decimals>
@@ -605,7 +619,7 @@ Any inquiries can be addressed to:
 		</Param>
 		
 		<Param id="13" trending="true">
-			<Name>Progression_Order</Name>
+			<Name>progressionOrder</Name>
 			<Description>Progression Order</Description>
 			<Type>read</Type>
 			<Information>
@@ -615,7 +629,7 @@ Any inquiries can be addressed to:
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
-				<DefaultValue>0</DefaultValue>
+				<DefaultValue>-1</DefaultValue>
 				<Exceptions>
 					<Exception id="1" value="-1">
 						<Display state="disabled">Not Available</Display>
@@ -660,7 +674,7 @@ Any inquiries can be addressed to:
 			</Measurement>
 		</Param>
 		<Param id="113">
-			<Name>Progression_Order</Name>
+			<Name>progressionOrder</Name>
 			<Description>Progression Order</Description>
 			<Type>write</Type>
 			<Interprete>
@@ -706,7 +720,7 @@ Any inquiries can be addressed to:
 		</Param>
 		
 		<Param id="14" trending="false">
-			<Name>Code_Block_Width</Name>
+			<Name>codeBlockWidth</Name>
 			<Description>Code Block Width</Description>
 			<Type>read</Type>
 			<Information>
@@ -716,7 +730,7 @@ Any inquiries can be addressed to:
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
-				<DefaultValue>0</DefaultValue>
+				<DefaultValue>-1</DefaultValue>
 				<Exceptions>
 					<Exception id="1" value="-1">
 						<Display state="disabled">Not Available</Display>
@@ -744,7 +758,7 @@ Any inquiries can be addressed to:
 		</Param>
 		
 		<Param id="15" trending="false">
-			<Name>Code_Block_Height</Name>
+			<Name>codeBlockHeight</Name>
 			<Description>Code Block Height</Description>
 			<Type>read</Type>
 			<Information>
@@ -754,7 +768,7 @@ Any inquiries can be addressed to:
 				<RawType>numeric text</RawType>
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
-				<DefaultValue>0</DefaultValue>
+				<DefaultValue>-1</DefaultValue>
 				<Exceptions>
 					<Exception id="1" value="-1">
 						<Display state="disabled">Not Available</Display>
@@ -780,14 +794,75 @@ Any inquiries can be addressed to:
 				<Type>number</Type>
 			</Measurement>
 		</Param>
-		
+		<!-- Dummy parameter -->
 		<Param id="16">
-			<Name>AfterStartup</Name>
+			<Name>afterStartup</Name>
 			<Description>After Startup</Description>
 			<Type>dummy</Type>
 		</Param>
+		<!-- Fixed parameters -->		
+		<Param id="17">
+			<Name>valueOfCurrentBitrate</Name>
+			<Description>Store the value of Current Bitrate</Description>
+			<Type>fixed</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>fixed</LengthType>
+				<Length>3</Length>
+				<Value>500</Value>
+			</Interprete>
+		</Param>
 		
-				
+		<Param id="18">
+			<Name>vauleOne</Name>
+			<Description>Value One</Description>
+			<Type>fixed</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>fixed</LengthType>
+				<Length>1</Length>
+				<Value>1</Value>
+			</Interprete>
+		</Param>
+
+		<Param id="19">
+			<Name>valueOfChromaWeight</Name>
+			<Description>Store the value of Chroma Weight</Description>
+			<Type>fixed</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>fixed</LengthType>
+				<Length>2</Length>
+				<Value>50</Value>
+			</Interprete>
+		</Param>
+		<Param id="20">
+			<Name>valueOfCodeBlockWidth</Name>
+			<Description>Stores value of Code Block Width</Description>
+			<Type>fixed</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>fixed</LengthType>
+				<Length>4</Length>
+				<Value>2040</Value>
+			</Interprete>
+		</Param>
+		<Param id="21">
+			<Name>valueOfCodeBlockHeight</Name>
+			<Description>Stores value of Code Block Height</Description>
+			<Type>fixed</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>fixed</LengthType>
+				<Length>4</Length>
+				<Value>1800</Value>
+			</Interprete>
+		</Param>
 	</Params>
 
 	<QActions>
@@ -803,7 +878,56 @@ Any inquiries can be addressed to:
 			<Content>
 				<Action>2</Action>
 			</Content>
-		</Group>		
+		</Group>
+		<Group id="3">
+			<Name>Disable Encoder</Name>
+			<Description>Disable Encoders Status and set his parameters as Not Available</Description>
+			<Type>poll action</Type>
+			<Content>
+				<Action>5</Action>
+				<!--Set all parameters on Not Available-->
+				<Action>7</Action>
+				<Action>8</Action>
+				<Action>9</Action>
+				<Action>10</Action>
+			</Content>
+		</Group>
+	
+		<Group id="4">
+			<Name>Disable Decoder</Name>
+			<Description>Disable Decoders Status and set his paraeters as Not Available</Description>
+			<Type>poll action</Type>
+			<Content>
+				<Action>6</Action>
+				<!--Set all parameters on Not Available-->
+				<Action>11</Action>
+				<Action>12</Action>
+				<Action>13</Action>
+				<Action>14</Action>			
+			</Content>
+		</Group>
+		<Group id="5">
+			<Name>Encoders Parameteres Available</Name>
+			<Description>Shows all Encoders parameters with their values.</Description>
+			<Type>poll action</Type>
+			<Content>
+				<Action>15</Action>
+				<Action>16</Action>
+				<Action>17</Action>
+				<Action>18</Action>
+			</Content>
+		</Group>
+		<Group id="6">
+			<Name>Decoders Parameters Available</Name>
+			<Description>shows all Decoders parameters with their values.</Description>
+			<Type>poll action</Type>
+			<Content>
+				<Action>19</Action>
+				<Action>20</Action>
+				<Action>21</Action>
+				<Action>22</Action>
+			</Content>
+		</Group>
 	</Groups>
 
 	<Triggers>
@@ -816,48 +940,29 @@ Any inquiries can be addressed to:
 				<Id>1</Id>
 			</Content>
 		</Trigger>
-		
-		
-		<Trigger id="107">
+	
+		<Trigger id="2">
 			<Name>On Encoder Status Change</Name>
-			<On id="107">parameter</On>
-			<Condition><![CDATA[id:6 == 1]]></Condition>
-			<Time>change</Time>
-			<Type>action</Type>
-			<Content>
-				<Id>106</Id>
-				<Id>8</Id>
-				<Id>9</Id>
-				<Id>10</Id>
-				<Id>11</Id>
-
-				<Id>20</Id>
-				<Id>21</Id>
-				<Id>22</Id>
-				<Id>23</Id>
-			</Content>
-		</Trigger>
-		
-		<Trigger id="106">
-			<Name>On Decoder Status Change</Name>
 			<On id="106">parameter</On>
-			<Condition><![CDATA[id:7 == 1]]></Condition>
 			<Time>change</Time>
 			<Type>action</Type>
 			<Content>
-				<Id>107</Id>
-				<Id>12</Id>
-				<Id>13</Id>
-				<Id>14</Id>
-				<Id>15</Id>
-
-				<Id>16</Id>
-				<Id>17</Id>
-				<Id>18</Id>
-				<Id>19</Id>
+				<Id>4</Id>
+				<Id>5</Id>
+				<Id>6</Id>
 			</Content>
 		</Trigger>
 		
+		<Trigger id="3">
+			<Name>On Decoder Status Change</Name>
+			<On id="107">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>3</Id>
+				<Id>5</Id>
+			</Content>
+		</Trigger>		
 	</Triggers>
 
 	<Actions>
@@ -871,102 +976,112 @@ Any inquiries can be addressed to:
 			<On id="16">parameter</On>
 			<Type>run actions</Type>
 		</Action>
-		
-		<Action id="106">
+
+		<Action id="3">
+			<Name>Disable Encoder</Name>
+			<On id="3;5">group</On>
+			<Type>execute next</Type>
+		</Action>
+		<Action id="4">
+			<Name>Disable Decoder</Name>
+			<On id="4">group</On>
+			<Type>execute next</Type>
+		</Action>
+	
+		<Action id="5">
 			<Name>Disable Encoder Status </Name>
 			<On id="6">parameter</On>
 			<Type id="1">copy</Type>
 		</Action>
-		<Action id="107">
+		<Action id="6">
 			<Name>Disable Decoder Status</Name>
 			<On id="7">parameter</On>
 			<Type id="1">copy</Type>
 		</Action>
-
-		<Action id="8">
+		<!-- Set all Encoders parameters on Not Available -->
+		<Action id="7">
 			<Name>Current Compressed Bitrate Encoder Not Available</Name>
 			<On id="8">parameter</On>
 			<Type id="2">copy</Type>
 		</Action>
-		<Action id="9">
+		<Action id="8">
 			<Name>Auto Chroma Weight Not Available</Name>
 			<On id="9">parameter</On>
 			<Type id="2">copy</Type>
 		</Action>
-		<Action id="10">
+		<Action id="9">
 			<Name>Chroma Weight Not Available</Name>
 			<On id="10">parameter</On>
 			<Type id="2">copy</Type>
 		</Action>
-		<Action id="11">
+		<Action id="10">
 			<Name>Lossless Mode Not Available</Name>
 			<On id="11">parameter</On>
 			<Type id="2">copy</Type>
 		</Action>
-
-		<Action id="12">
+		<!-- Set all Decoders parameters on Not Available -->
+		<Action id="11">
 			<Name>Current Compressed Bitrate Decoder Not Available</Name>
 			<On id="12">parameter</On>
 			<Type id="2">copy</Type>
 		</Action>
-		<Action id="13">
+		<Action id="12">
 			<Name>Progression Order Not Available</Name>
 			<On id="13">parameter</On>
 			<Type id="2">copy</Type>
 		</Action>
-		<Action id="14">
+		<Action id="13">
 			<Name>Code Block Not Available</Name>
 			<On id="14">parameter</On>
 			<Type id="2">copy</Type>
 		</Action>
-		<Action id="15">
+		<Action id="14">
 			<Name>Code Block Height Not Available</Name>
 			<On id="15">parameter</On>
 			<Type id="2">copy</Type>
 		</Action>
-		
-		<Action id="16">
+		<!-- Set all Encoders parameters on Available -->
+		<Action id="15">
 			<Name>Current Compressed Bitrate Encoder Available</Name>
 			<On id="8">parameter</On>
-			<Type id="1">copy</Type>
+			<Type id="17">copy</Type>
 		</Action>
-		<Action id="17">
+		<Action id="16">
 			<Name>Auto Chroma Weight Available</Name>
 			<On id="9">parameter</On>
-			<Type id="1">copy</Type>
+			<Type id="18">copy</Type>
 		</Action>
-		<Action id="18">
+		<Action id="17">
 			<Name>Chroma Weight Available</Name>
 			<On id="10">parameter</On>
-			<Type id="1">copy</Type>
+			<Type id="19">copy</Type>
 		</Action>
-		<Action id="19">
+		<Action id="18">
 			<Name>Lossless Mode Available</Name>
 			<On id="11">parameter</On>
-			<Type id="1">copy</Type>
+			<Type id="18">copy</Type>
 		</Action>
-
-		<Action id="20">
+		<!-- Set all Decoders parameters on Available -->
+		<Action id="19">
 			<Name>Current Compressed Bitrate Decoder Available</Name>
 			<On id="12">parameter</On>
-			<Type id="1">copy</Type>
+			<Type id="17">copy</Type>
 		</Action>
-		<Action id="21">
+		<Action id="20">
 			<Name>Progression Order Available</Name>
 			<On id="13">parameter</On>
 			<Type id="1">copy</Type>
 		</Action>
-		<Action id="22">
-			<Name>Code Block Available</Name>
+		<Action id="21">
+			<Name>Code Block Width Available</Name>
 			<On id="14">parameter</On>
-			<Type id="1">copy</Type>
+			<Type id="20">copy</Type>
 		</Action>
-		<Action id="23">
+		<Action id="22">
 			<Name>Code Block Height Available</Name>
 			<On id="15">parameter</On>
-			<Type id="1">copy</Type>
-		</Action>
-		
+			<Type id="21">copy</Type>
+		</Action>		
 	</Actions>
 
 	<Timers>
@@ -1008,7 +1123,7 @@ Any inquiries can be addressed to:
 									<MinorVersion id="1">
 										<Date>2024-01-08</Date>
 										<Provider>
-											<Author>XXX</Author>
+											<Author>ABA</Author>
 											<Company>Skyline Communications</Company>
 										</Provider>
 										<Changes>
