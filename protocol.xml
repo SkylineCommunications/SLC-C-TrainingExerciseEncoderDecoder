@@ -910,6 +910,7 @@ Any inquiries can be addressed to:
 			<Name>Encoders Parameteres Available</Name>
 			<Description>Shows all Encoders parameters with their values.</Description>
 			<Type>poll action</Type>
+			<Condition><![CDATA[id:6 == 1]]></Condition>
 			<Content>
 				<Action>15</Action>
 				<Action>16</Action>
@@ -919,8 +920,9 @@ Any inquiries can be addressed to:
 		</Group>
 		<Group id="6">
 			<Name>Decoders Parameters Available</Name>
-			<Description>shows all Decoders parameters with their values.</Description>
+			<Description>Shows all Decoders parameters with their values.</Description>
 			<Type>poll action</Type>
+			<Condition><![CDATA[id:7 == 1]]></Condition>
 			<Content>
 				<Action>19</Action>
 				<Action>20</Action>
@@ -946,10 +948,12 @@ Any inquiries can be addressed to:
 			<On id="106">parameter</On>
 			<Time>change</Time>
 			<Type>action</Type>
+			<Condition><![CDATA[id:6 == 0]]></Condition>	
 			<Content>
 				<Id>4</Id>
-				<Id>5</Id>
-				<Id>6</Id>
+				<Id>23</Id>
+				<Id else="true">3</Id>
+				<Id else="true">24</Id>
 			</Content>
 		</Trigger>
 		
@@ -958,9 +962,12 @@ Any inquiries can be addressed to:
 			<On id="107">parameter</On>
 			<Time>change</Time>
 			<Type>action</Type>
+			<Condition><![CDATA[id:7 == 0]]></Condition>
 			<Content>
 				<Id>3</Id>
-				<Id>5</Id>
+				<Id>24</Id>
+				<Id else="true">4</Id>
+				<Id else="true">23</Id>
 			</Content>
 		</Trigger>		
 	</Triggers>
@@ -976,10 +983,10 @@ Any inquiries can be addressed to:
 			<On id="16">parameter</On>
 			<Type>run actions</Type>
 		</Action>
-
+		<!-- Group Actions -->
 		<Action id="3">
 			<Name>Disable Encoder</Name>
-			<On id="3;5">group</On>
+			<On id="3">group</On>
 			<Type>execute next</Type>
 		</Action>
 		<Action id="4">
@@ -987,7 +994,7 @@ Any inquiries can be addressed to:
 			<On id="4">group</On>
 			<Type>execute next</Type>
 		</Action>
-	
+		<!-- Copy Actions -->
 		<Action id="5">
 			<Name>Disable Encoder Status </Name>
 			<On id="6">parameter</On>
@@ -1081,7 +1088,17 @@ Any inquiries can be addressed to:
 			<Name>Code Block Height Available</Name>
 			<On id="15">parameter</On>
 			<Type id="21">copy</Type>
-		</Action>		
+		</Action>
+		<Action id="23">
+			<Name>Show Encoder Parameters</Name>
+			<On id="5">group</On>
+			<Type>execute next</Type>
+		</Action>
+		<Action id="24">
+			<Name>Show Decoder parameters</Name>
+			<On id="6">group</On>
+			<Type>execute next</Type>
+		</Action>
 	</Actions>
 
 	<Timers>
