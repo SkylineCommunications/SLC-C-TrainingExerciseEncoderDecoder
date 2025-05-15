@@ -319,8 +319,9 @@ Any inquiries can be addressed to:
 			</Interprete>
 			<Alarm>
 				<Monitored>true</Monitored>
-				<CH>1000</CH>
+				<Normal>400</Normal>
 				<CL>50</CL>
+				<CH>1000</CH>
 			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -376,12 +377,12 @@ Any inquiries can be addressed to:
 				<Type>discreet</Type>
 				<Discreets>
 					<Discreet>
-						<Display>Enabled</Display>
-						<Value>1</Value>
+						<Display>Disabled</Display>
+						<Value>0</Value>
 					</Discreet>
 					<Discreet>
-						<Display>Disabled</Display>
-						<Value>2</Value>
+						<Display>Enabled</Display>
+						<Value>1</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
@@ -409,12 +410,12 @@ Any inquiries can be addressed to:
 				<Type>togglebutton</Type>
 				<Discreets>
 					<Discreet>
-						<Display>Enabled</Display>
-						<Value>1</Value>
+						<Display>Disabled</Display>
+						<Value>0</Value>
 					</Discreet>
 					<Discreet>
-						<Display>Disabled</Display>
-						<Value>2</Value>
+						<Display>Enabled</Display>
+						<Value>1</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
@@ -466,7 +467,7 @@ Any inquiries can be addressed to:
 				<Type>analog</Type>
 			</Measurement>
 		</Param>
-		<Param id="110">
+		<Param id="110" setter="true">
 			<Name>chromaWeight</Name>
 			<Description>Chroma Weight</Description>
 			<Type>write</Type>
@@ -528,12 +529,12 @@ Any inquiries can be addressed to:
 				<Type>discreet</Type>
 				<Discreets>
 					<Discreet>
-						<Display>Enabled</Display>
-						<Value>1</Value>
+						<Display>Disabled</Display>
+						<Value>0</Value>
 					</Discreet>
 					<Discreet>
-						<Display>Disabled</Display>
-						<Value>2</Value>
+						<Display>Enabled</Display>
+						<Value>1</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
@@ -561,12 +562,12 @@ Any inquiries can be addressed to:
 				<Type>togglebutton</Type>
 				<Discreets>
 					<Discreet>
-						<Display>Enabled</Display>
-						<Value>1</Value>
+						<Display>Disabled</Display>
+						<Value>0</Value>
 					</Discreet>
 					<Discreet>
-						<Display>Disabled</Display>
-						<Value>2</Value>
+						<Display>Enabled</Display>
+						<Value>1</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
@@ -594,6 +595,7 @@ Any inquiries can be addressed to:
 			</Interprete>
 			<Alarm>
 				<Monitored>true</Monitored>
+				<Normal>400</Normal>
 				<CH>1000</CH>
 				<CL>50</CL>
 			</Alarm>
@@ -673,7 +675,7 @@ Any inquiries can be addressed to:
 				</Discreets>
 			</Measurement>
 		</Param>
-		<Param id="113">
+		<Param id="113" setter="true">
 			<Name>progressionOrder</Name>
 			<Description>Progression Order</Description>
 			<Type>write</Type>
@@ -970,6 +972,17 @@ Any inquiries can be addressed to:
 				<Id else="true">23</Id>
 			</Content>
 		</Trigger>		
+		<Trigger id="4">
+			<Name>Change Chroma Weight</Name>
+			<On id="9">parameter</On>
+			<Time>change</Time>
+			<Type>action</Type>
+			<Condition><![CDATA[id:9 == 0]]></Condition>
+			<Content>
+				<Id>9</Id>
+				<Id else="true">17</Id>
+			</Content>
+		</Trigger>
 	</Triggers>
 
 	<Actions>

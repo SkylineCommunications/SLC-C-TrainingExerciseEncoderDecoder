@@ -98,11 +98,11 @@ public class WriteParameters
 	public System.Object Encoderstatus {get { return Protocol.GetParameter(106); }set { Protocol.SetParameter(106, value); }}
 	/// <summary>PID: 107  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
 	public System.Object Decoderstatus {get { return Protocol.GetParameter(107); }set { Protocol.SetParameter(107, value); }}
-	/// <summary>PID: 109  | Type: write | DISCREETS: Enabled = 1, Disabled = 2</summary>
+	/// <summary>PID: 109  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
 	public System.Object Autochromaweight {get { return Protocol.GetParameter(109); }set { Protocol.SetParameter(109, value); }}
 	/// <summary>PID: 110  | Type: write</summary>
 	public System.Object Chromaweight {get { return Protocol.GetParameter(110); }set { Protocol.SetParameter(110, value); }}
-	/// <summary>PID: 111  | Type: write | DISCREETS: Enabled = 1, Disabled = 2</summary>
+	/// <summary>PID: 111  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
 	public System.Object Losslessmode {get { return Protocol.GetParameter(111); }set { Protocol.SetParameter(111, value); }}
 	/// <summary>PID: 113  | Type: write | DISCREETS: LCRP = 0, RLCP = 1, RPCL = 2, PCRL = 3, CPRL = 4</summary>
 	public System.Object Progressionorder {get { return Protocol.GetParameter(113); }set { Protocol.SetParameter(113, value); }}
@@ -180,20 +180,20 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Currentcompressedbitrateencoder_8 {get { return GetParameter(8); }set { SetParameter(8, value); }}
 	/// <summary>PID: 8  | Type: read | EXCEPTIONS: Not Available = -1</summary>
 	public System.Object Currentcompressedbitrateencoder {get { return GetParameter(8); }set { SetParameter(8, value); }}
-	/// <summary>PID: 9  | Type: read | DISCREETS: Enabled = 1, Disabled = 2 | EXCEPTIONS: Not Available = -1</summary>
+	/// <summary>PID: 9  | Type: read | DISCREETS: Disabled = 0, Enabled = 1 | EXCEPTIONS: Not Available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Autochromaweight_9 {get { return GetParameter(9); }set { SetParameter(9, value); }}
-	/// <summary>PID: 9  | Type: read | DISCREETS: Enabled = 1, Disabled = 2 | EXCEPTIONS: Not Available = -1</summary>
+	/// <summary>PID: 9  | Type: read | DISCREETS: Disabled = 0, Enabled = 1 | EXCEPTIONS: Not Available = -1</summary>
 	public System.Object Autochromaweight {get { return GetParameter(9); }set { SetParameter(9, value); }}
 	/// <summary>PID: 10  | Type: read | EXCEPTIONS: Not Available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Chromaweight_10 {get { return GetParameter(10); }set { SetParameter(10, value); }}
 	/// <summary>PID: 10  | Type: read | EXCEPTIONS: Not Available = -1</summary>
 	public System.Object Chromaweight {get { return GetParameter(10); }set { SetParameter(10, value); }}
-	/// <summary>PID: 11  | Type: read | DISCREETS: Enabled = 1, Disabled = 2 | EXCEPTIONS: Not Available = -1</summary>
+	/// <summary>PID: 11  | Type: read | DISCREETS: Disabled = 0, Enabled = 1 | EXCEPTIONS: Not Available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Losslessmode_11 {get { return GetParameter(11); }set { SetParameter(11, value); }}
-	/// <summary>PID: 11  | Type: read | DISCREETS: Enabled = 1, Disabled = 2 | EXCEPTIONS: Not Available = -1</summary>
+	/// <summary>PID: 11  | Type: read | DISCREETS: Disabled = 0, Enabled = 1 | EXCEPTIONS: Not Available = -1</summary>
 	public System.Object Losslessmode {get { return GetParameter(11); }set { SetParameter(11, value); }}
 	/// <summary>PID: 12  | Type: read | EXCEPTIONS: Not Available = -1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
@@ -233,13 +233,13 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	/// <summary>PID: 107  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Decoderstatus_107 {get { return GetParameter(107); }set { SetParameter(107, value); }}
-	/// <summary>PID: 109  | Type: write | DISCREETS: Enabled = 1, Disabled = 2</summary>
+	/// <summary>PID: 109  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Autochromaweight_109 {get { return GetParameter(109); }set { SetParameter(109, value); }}
 	/// <summary>PID: 110  | Type: write</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Chromaweight_110 {get { return GetParameter(110); }set { SetParameter(110, value); }}
-	/// <summary>PID: 111  | Type: write | DISCREETS: Enabled = 1, Disabled = 2</summary>
+	/// <summary>PID: 111  | Type: write | DISCREETS: Disabled = 0, Enabled = 1</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Losslessmode_111 {get { return GetParameter(111); }set { SetParameter(111, value); }}
 	/// <summary>PID: 113  | Type: write | DISCREETS: LCRP = 0, RLCP = 1, RPCL = 2, PCRL = 3, CPRL = 4</summary>
